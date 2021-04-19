@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>好分期测试平台</title>
+    <!--bootstrap-->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/static/css/mystyle.css" rel="stylesheet">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <!--Vue-->
+    <script src="/static/js/vue.js"></script>
+</head>
+<body>
+<ul>
+  <li><a class="active" href="#home">风控审核</a></li>
+  <li><a href="/accountingcallback.html">账务回调</a></li>
+  <li><a href="/useraccount.html">账号生成</a></li>
+  <li><a href="#about">常用工具</a></li>
+</ul>
+
+<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+    <li>手机号：<input type="text" id="mobile"><button type="button" id="searchbutton" onclick="userInfo(mobile)">查询</button></li>
+    <p id="demo">这是第一个段落</p>
+    <table>
+        <tr>
+            <td>uid</td>
+            <td>uniquekey</td>
+            <td>authid</td>
+            <td>loanid</td>
+        </tr>
+        <tr>
+            <td><i>null</i></td>
+            <td><i>null</i></td>
+            <td><i>null</i></td>
+            <td><i>null</i></td>
+        </tr>
+    </table>
+
+
+    <table>
+        <tr>
+            <td>风控进件审核</td>
+            <td><input type="button" name="auditverifypass" value="通过"></td>
+            <td><input type="button" name="auditverifyreject" value="拒绝"></td>
+        </tr>
+        <tr>
+            <td>风控借款审核</td>
+            <td><input type="button" name="lendverifypass" value="通过"></td>
+            <td><input type="button" name="lendverifyreject" value="拒绝"></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+function userInfo(mobile){
+	document.getElementById("searchbutton").innerHTML=Date();
+	document.getElementById("searchbutton").innerHTML=Date();
+}
+</script>
+</body>
+</html>
