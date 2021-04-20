@@ -17,9 +17,10 @@ from django.urls import path
 from testtools import views
 
 urlpatterns = [
-    path('index/', views.index),
-#    path('audit_verify_callback/', views.audit_verify_callback),
-#    path('lend_verify_callback/', views.lend_verify_callback),
+#    path('index/', views.select_data),
+    path('encrypt_str/', views.encrypt_str),
+    path('decrypt_str/', views.decrypt_str),
+#    path('encrypt_decrypt/', views.decrypt_str),
 #    path('lending_callback/', views.lending_callback),
 #    path('repay_callback/', views.repay_callback),
 
