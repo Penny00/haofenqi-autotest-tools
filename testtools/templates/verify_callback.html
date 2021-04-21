@@ -1,0 +1,77 @@
+{% extends "./index.html" %}
+
+{% block crumbs %}
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">主页</a>
+                </li>
+                <li class="active">
+                    <a class="this">便捷工具</a>
+                </li>
+                <li class="active">
+                    <a class="this-page">风控审核</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+            < class="panel-heading" style="display:inline-block; float:left;">
+                <input type="search" placeholder="请输入手机号" name="search_userinfo" style="...">
+                <button type="submit" id="search_userinfo">查询</button>
+             <div class="panel-body" style="padding-bottom: 0px;">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th width="90px">uid</th>
+                        <th width="170px">account</th>
+                        <th width="80px">name</th>
+                        <th width="300px">pid</th>
+                        <th width="300px">bank_num</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ uid }}</td>
+                            <td>{{ name }}</td>
+                            <td>{{ pid }}</td>
+                            <td>{{ system_unique_id }}</td>
+                            <td>{{ audit_id }}</td>
+                            <td>{{ loan_id }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                <br><br>
+
+
+                <p class="btn btn-primary">风控进件审核</p>
+
+                <form method="post" action="{% url 'audit_verify' %}">
+                  {% csrf_token %}
+                    <input type="search" placeholder="请输入手机号" name="audit_verify" style="margin-top: 10px;">
+                    <button type="submit" id="audit_accept">通过</button>
+                    <button type="submit" id="audit_reject">拒绝</button>
+
+                </form>
+
+                <p class="btn btn-primary">风控放款审核</p>
+
+                <form method="post" action="{% url 'lending_verify' %}" >
+                  {% csrf_token %}
+                    <input type="search" placeholder="请输入手机号" name="lending_verify" style="margin-top: 10px;">
+                    <button type="submit" id="lending_accept">通过</button>
+                    <button type="submit" id="lending_reject">拒绝</button>
+
+                </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
