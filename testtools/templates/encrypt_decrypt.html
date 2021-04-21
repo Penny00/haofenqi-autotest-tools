@@ -1,4 +1,4 @@
-
+{% extends "./index.html" %}
 
 {% block crumbs %}
     <div class="row">
@@ -8,7 +8,7 @@
                     <a href="#">主页</a>
                 </li>
                 <li class="active">
-                    <a class="this">测试工具</a>
+                    <a class="this">便捷工具</a>
                 </li>
                 <li class="active">
                     <a class="this-page">加密解密</a>
@@ -33,7 +33,7 @@
                 </form>
                 <p style="margin-top: 10px;" >加密前的字符串：{{ encrypt_str }}</p>
                 <p style="margin-top: 10px;" >加密后的字符串：{{ encrypt_after }}</p>
-                <div class="panel-body" style="padding-bottom: 0px;">
+ <!--               <div class="panel-body" style="padding-bottom: 0px;">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -55,7 +55,7 @@
                     </tbody>
                 </table>
             </div>
-                <br><br>
+                <br><br>-->
 
                 <p class="btn btn-primary">解密字符串</p>
 

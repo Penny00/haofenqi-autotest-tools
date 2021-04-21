@@ -17,9 +17,9 @@ from django.urls import path
 from testtools import views
 
 urlpatterns = [
-#    path('index/', views.select_data),
-    path('encrypt_str/', views.encrypt_str),
-    path('decrypt_str/', views.decrypt_str),
+    path('index/', views.index),
+    path('encrypt_str/', views.encrypt_str, name="encrypt_str"),
+    path('decrypt_str/', views.decrypt_str, name="decrypt_str"),
 #    path('encrypt_decrypt/', views.decrypt_str),
 #    path('lending_callback/', views.lending_callback),
 #    path('repay_callback/', views.repay_callback),

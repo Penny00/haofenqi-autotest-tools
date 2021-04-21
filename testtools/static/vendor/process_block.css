@@ -1,0 +1,15 @@
+table{
+	width:100%;
+	table-layout:fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+}
+
+.divcss5-td-1{
+    /*width:250px;*/
+    word-break:keep-all;/* 不换行 */
+	white-space:nowrap;/* 不换行 */
+    /*text-overflow : clip*/
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/
+}
+.divcss5-td-2{width:150px}
+.divcss5-td-3{width:200px}
