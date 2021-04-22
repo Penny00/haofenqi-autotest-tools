@@ -23,50 +23,29 @@
     <div class="col-md-12">
         <div class="panel">
             <div class="panel-heading" style="display:inline-block; float:left;">
+
                 <p class="btn btn-primary">加密字符串</p>
-
-                     <form method="post" action="{% url 'encrypt_str' %}">
-                  {% csrf_token %}
-                   <input type="search" placeholder="请输入加密串" name="encrypt_str" style="margin-top: 10px;">
+                <form method="post" action="{% url 'encrypt_str' %}">
+                    {% csrf_token %}
+                    <input type="search" placeholder="请输入加密串" name="encrypt_str" style="margin-top: 10px;">
                     <button type="submit">执行</button>
-
                 </form>
+
                 <p style="margin-top: 10px;" >加密前的字符串：{{ encrypt_str }}</p>
                 <p style="margin-top: 10px;" >加密后的字符串：{{ encrypt_after }}</p>
- <!--               <div class="panel-body" style="padding-bottom: 0px;">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th width="90px">uid</th>
-                        <th width="170px">account</th>
-                        <th width="80px">name</th>
-                        <th width="300px">pid</th>
-                        <th width="300px">bank_num</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ uid }}</td>
-                            <td>{{ encrypt_str }}</td>
-                            <td>{{ name }}</td>
-                            <td>{{ pid }}</td>
-                            <td>{{ bank_num }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-                <br><br>-->
+
 
                 <p class="btn btn-primary">解密字符串</p>
-
-                    <form method="post" action="{% url 'decrypt_str' %}" >
-                  {% csrf_token %}
-                   <input type="search" placeholder="请输入解密串" name="decrypt_str" style="margin-top: 10px;">
+                <form method="post" action="{% url 'decrypt_str' %}" >
+                    {% csrf_token %}
+                    <input type="search" placeholder="请输入解密串" name="decrypt_str" style="margin-top: 10px;">
                     <button type="submit">执行</button>
+                </form>
 
-                     </form>
-                    <p style="margin-top: 10px;" >解密前的字符串：{{ decrypt_str }}</p>
-                    <p style="margin-top: 10px;" >解密后的字符串：{{ decrypt_after }}</p>
+                <p style="margin-top: 10px;" >解密前的字符串：{{ decrypt_str }}</p>
+                <p style="margin-top: 10px;" >解密后的字符串：{{ decrypt_after }}</p>
+
+
         </div>
     </div>
 </div>

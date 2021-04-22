@@ -1,9 +1,61 @@
 import requests
 from django.shortcuts import render
+from common.database import MysqlTest
 
 
 def index(request):
     return render(request, "index.html")
+
+
+def userinfo(request):
+    mobile = request.POST.get('mobile')
+    context = {}
+    context["mobile"] = mobile
+    context["uid"] = None
+    context["name"] = None
+    context["pid"] = None
+    context["system_unique_id"] = None
+    context["audit_id"] = None
+    context["loan_id"] = None
+
+    #从数据库获取数据
+    sql_test = MysqlTest()
+    select_id = "select uid,system_unique_id from user_account where account='{}' limit 1".format(encrypt_inter(mobile))
+    select_result = sql_test.select_sql(select_id)
+    if select_result is not None:
+        uid = select_result['uid']
+        system_unique_id = select_result['system_unique_id']
+        context["uid"] = uid
+        context["system_unique_id"] = system_unique_id
+        sql_test = MysqlTest()
+        select_id = "select name,pid from user_pid where uid='{}' limit 1".format(uid)
+        select_result = sql_test.select_sql(select_id)
+        if select_result is not None:
+            name = decrypt_inter(select_result['name'])
+            pid = decrypt_inter(select_result['pid'])
+            context["name"] = name
+            context["pid"] = pid
+        sql_test = MysqlTest()
+        select_id = "select audit_id from user_audit where uid='{}' limit 1".format(uid)
+        select_result = sql_test.select_sql(select_id)
+        if select_result is not None:
+            audit_id = select_result['audit_id']
+            context["audit_id"] = audit_id
+        sql_test = MysqlTest()
+        select_id = "select loan_id from template_log where uid='{}' limit 1".format(uid)
+        select_result = sql_test.select_sql(select_id)
+        if select_result is not None:
+            loan_id = select_result['loan_id']
+            context["loan_id"] = loan_id
+
+    return render(request, "verify_callback.html", context)
+
+
+
+
+
+
+
 
 def encrypt_inter(encrypt_str):
     url = "http://172.16.2.131:9090/encrypt"

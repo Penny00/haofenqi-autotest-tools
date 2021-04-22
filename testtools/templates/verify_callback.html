@@ -23,17 +23,18 @@
     <div class="col-md-12">
         <div class="panel">
             < class="panel-heading" style="display:inline-block; float:left;">
-                <input type="search" placeholder="请输入手机号" name="search_userinfo" style="...">
-                <button type="submit" id="search_userinfo">查询</button>
+                <input type="search" placeholder="请输入手机号" name="mobile" style="...">
+                <button type="submit" id="search_userinfo" formaction="{% url 'search_userinfo'%}" >查询</button>
              <div class="panel-body" style="padding-bottom: 0px;">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
                         <th width="90px">uid</th>
-                        <th width="170px">account</th>
-                        <th width="80px">name</th>
-                        <th width="300px">pid</th>
-                        <th width="300px">bank_num</th>
+                        <th width="170px">name</th>
+                        <th width="80px">pid</th>
+                        <th width="300px">system_unique_id</th>
+                        <th width="300px">audit_id</th>
+                        <th width="300px">loan_id</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -50,26 +51,45 @@
             </div>
                 <br><br>
 
-
-                <p class="btn btn-primary">风控进件审核</p>
-
-                <form method="post" action="{% url 'audit_verify' %}">
-                  {% csrf_token %}
-                    <input type="search" placeholder="请输入手机号" name="audit_verify" style="margin-top: 10px;">
-                    <button type="submit" id="audit_accept">通过</button>
-                    <button type="submit" id="audit_reject">拒绝</button>
-
-                </form>
-
-                <p class="btn btn-primary">风控放款审核</p>
-
-                <form method="post" action="{% url 'lending_verify' %}" >
-                  {% csrf_token %}
-                    <input type="search" placeholder="请输入手机号" name="lending_verify" style="margin-top: 10px;">
-                    <button type="submit" id="lending_accept">通过</button>
-                    <button type="submit" id="lending_reject">拒绝</button>
-
-                </form>
+            <div class="panel-body" style="padding-bottom: 0px;">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th width="90px">回调类型</th>
+                        <th width="170px">操作</th>
+                        <th width="80px">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>风控进件审核</td>
+                            <td>
+                                <div class="panel-heading">
+                                    <button  id="AuditAcceptButton" type="button" ><a class="btn btn-primary">通过</a></button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="panel-heading">
+                                    <button  id="AuditRejectButton" type="button" ><a class="btn btn-primary">拒绝</a></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>风控放款审核</td>
+                            <td>
+                                <div class="panel-heading">
+                                    <button  id="LendingAcceptButton" type="button" ><a class="btn btn-primary">通过</a></button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="panel-heading">
+                                    <button  id="LendingRejectButton" type="button" ><a class="btn btn-primary">拒绝</a></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
     </div>
