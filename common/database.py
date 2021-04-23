@@ -11,7 +11,7 @@ class MysqlTest():
         '''数据库连接信息'''
         self.connection = pymysql.connect(
             host='172.16.2.153',
-            port='3306',
+            port=3306,
             user='admin',
             password='admin@admin.com',
             database='haohuan_db_dev',

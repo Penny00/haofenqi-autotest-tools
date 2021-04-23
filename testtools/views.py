@@ -47,7 +47,8 @@ def userinfo(request):
         if select_result is not None:
             loan_id = select_result['loan_id']
             context["loan_id"] = loan_id
-
+            
+ #   print(context)
     return render(request, "verify_callback.html", context)
 
 
@@ -102,3 +103,6 @@ def decrypt_str(request):
     context["decrypt_after"] = decrypt_after
     return render(request, "encrypt_decrypt.html", context)
 
+
+#if __name__ == '__main__':
+#    userinfo(13900000001)
