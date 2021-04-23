@@ -23,8 +23,13 @@
     <div class="col-md-12">
         <div class="panel">
             <p class="panel-heading" style="display:inline-block; float:left;"></p>
-                <input type="search" placeholder="请输入手机号" name="mobile" style="...">
-                <button type="submit" id="search_userinfo" onclick="{% url 'search_userinfo'%}" >查询</button>
+<!--                <input type="search" placeholder="请输入手机号" name="mobile" style="...">
+                <button type="submit" id="search_userinfo" onclick=userInfo(mobile)>查询</button>-->
+            <form action="/userinfo/" method="post">
+                {% csrf_token %}
+                <input type="text" name="mobile" placeholder="请输入用户手机号" style="...">
+                <input type="submit" value="查询">
+            </form>
              <div class="panel-body" style="padding-bottom: 0px;">
                 <table class="table table-bordered">
                     <thead>
@@ -65,12 +70,12 @@
                             <td>风控进件审核</td>
                             <td>
                                 <div class="panel-heading">
-                                    <button  id="AuditAcceptButton" type="button" ><a class="btn btn-primary">通过</a></button>
+                                    <button  id="AuditAcceptButton" type="button" onclick="AuditAccept()"><a class="btn btn-primary">通过</a></button>
                                 </div>
                             </td>
                             <td>
                                 <div class="panel-heading">
-                                    <button  id="AuditRejectButton" type="button" ><a class="btn btn-primary">拒绝</a></button>
+                                    <button  id="AuditRejectButton" type="button" onclick="AuditReject()"><a class="btn btn-primary">拒绝</a></button>
                                 </div>
                             </td>
                         </tr>
@@ -78,12 +83,12 @@
                             <td>风控放款审核</td>
                             <td>
                                 <div class="panel-heading">
-                                    <button  id="LendingAcceptButton" type="button" ><a class="btn btn-primary">通过</a></button>
+                                    <button  id="LendingAcceptButton" type="button" onclick="LendingAccept()"><a class="btn btn-primary">通过</a></button>
                                 </div>
                             </td>
                             <td>
                                 <div class="panel-heading">
-                                    <button  id="LendingRejectButton" type="button" ><a class="btn btn-primary">拒绝</a></button>
+                                    <button  id="LendingRejectButton" type="button" onclick="LendingReject()"><a class="btn btn-primary">拒绝</a></button>
                                 </div>
                             </td>
                         </tr>
@@ -94,4 +99,16 @@
         </div>
     </div>
 </div>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="../js/jquery.slimscroll.min.js"></script>
+<script src="../js/klorofil-common.js"></script>
+<script src="../js/select_data.js"></script>
+<link rel="stylesheet" href="../css/process_block.css">
+
+<script>
+to do 
+</script>
+
 {% endblock %}

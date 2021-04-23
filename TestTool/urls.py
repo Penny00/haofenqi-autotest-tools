@@ -18,7 +18,8 @@ from testtools import views
 
 urlpatterns = [
     path('index/', views.index),
-    path('verify_callback/', views.userinfo, name="search_userinfo"),
+#    path('verify_callback/', views.userinfo, name="search_userinfo"),
+    path('userinfo/', views.userinfo),
     path('verify_callback/', views.userinfo, name="verify_callback"),
     path('encrypt_str/', views.encrypt_str, name="encrypt_str"),
     path('decrypt_str/', views.decrypt_str, name="decrypt_str"),
