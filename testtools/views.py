@@ -52,12 +52,6 @@ def userinfo(request):
     return render(request, "verify_callback.html", context)
 
 
-
-
-
-
-
-
 def encrypt_inter(encrypt_str):
     url = "http://172.16.2.131:9090/encrypt"
     param = {
